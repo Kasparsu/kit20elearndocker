@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      dockerfile: ./app.dockerfile
+      context: .
+    ports:
+      - 8080:80
+      # - 443 equal to 443:443
+    volumes:
+      - ./htdocs:/usr/local/apache2/htdocs
