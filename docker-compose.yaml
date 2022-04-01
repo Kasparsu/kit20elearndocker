@@ -10,13 +10,16 @@ services:
       # - 443 equal to 443:443
     volumes:
       - ./app:/var/www/app
-    # environment:
+    environment:
+      DB_HOST: db
+      DB_PASSWORD: example
 
   db:
     image: mariadb
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: example
+      MARIADB_DATABASE: laravel
     volumes:
       - dbdata:/var/lib/mysql
   adminer:

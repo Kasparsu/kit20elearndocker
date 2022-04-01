@@ -6,6 +6,7 @@ RUN php -r "copy('https://raw.githubusercontent.com/composer/getcomposer.org/76a
     php composer-setup.php --filename=composer --install-dir=/bin && \
     php -r "unlink('composer-setup.php');"
 
+RUN docker-php-ext-install pdo pdo_mysql
 COPY ./entrypoint.sh /entrypoint.sh
 
 COPY ./vhost.conf /etc/apache2/sites-available/000-default.conf
