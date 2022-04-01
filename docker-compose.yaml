@@ -9,11 +9,9 @@ services:
       - 80:80
       # - 443 equal to 443:443
     volumes:
-      - ./htdocs:/var/www/html
-      - ./site1:/var/www/site1
-      - ./site2:/var/www/site2
-    environment:
-      FILENAME: test122
+      - ./app:/var/www/app
+    # environment:
+
   db:
     image: mariadb
     restart: always
