@@ -12,6 +12,8 @@ services:
       - ./htdocs:/var/www/html
       - ./site1:/var/www/site1
       - ./site2:/var/www/site2
+    environment:
+      FILENAME: test122
   db:
     image: mariadb
     restart: always

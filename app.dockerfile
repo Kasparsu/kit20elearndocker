@@ -10,6 +10,8 @@ RUN a2ensite site1.conf && a2ensite site2.conf
 
 # RUN cd /var/www/html && touch test.txt
 
-WORKDIR /var/www/site1
+WORKDIR /var/www/
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+COPY ./entrypoint.sh entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]
