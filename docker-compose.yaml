@@ -5,15 +5,16 @@ services:
     build:
       dockerfile: ./app.dockerfile
       context: .
-    ports:
-      - 80:80
-      # - 443 equal to 443:443
     volumes:
       - ./app:/var/www/app
-    environment:
-      DB_HOST: db
-      DB_PASSWORD: example
-
+  web:
+    build:
+      dockerfile: ./web.dockerfile
+      context: .
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/var/www/app
   db:
     image: mariadb
     restart: always
